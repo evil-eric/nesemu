@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>var exports = {"__esModule": true};</script>
+        <script src="../components/TitleBar.js"></script>
+        <script src="../components/WorkArea.js"></script>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            #app {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+            
+            title-bar {
+                height: 30px;
+	            box-shadow: 0 4px 2px -3px;
+                z-index: 10;
+            }
+
+            work-area {
+                background-color: white;
+                flex: 1;
+                z-index: 5;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <title-bar><span slot="title">Sample Application</span></title-bar>
+            <work-area></work-area>
+        </div>
+        <script src="./layouts.js"></script>
+    </body>
+</html>

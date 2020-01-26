@@ -1,0 +1,46 @@
+{
+  "name": "vectorart",
+  "version": "1.0.0",
+  "main": "out/index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "compile": "tsc",
+    "static": "copyfiles -u 1 src/**/*.html src/**/*.css ./out",
+    "build": "yarn lint && yarn compile && yarn static",
+    "start": "yarn build && electron ./out",
+    "start:last": "electron ./out/index.js",
+    "package": "yarn build && electron-builder build --publish never",
+    "package:all": "yarn build && electon-builder build -mwl --publish never",
+    "package:win": "yarn build && electron-builder build --win --publish never",
+    "package:linux": "yarn build && electron-builder build --linux --publish never",
+    "package:mac": "yarn build && electron-builder build --mac --publish never",
+    "publish:all": "yarn build && electon-builder build -mwl --publish always",
+    "publish:win": "yarn build && electron-builder build --win --publish always",
+    "publish:linux": "yarn build && electron-builder build --linux --publish always",
+    "publish:mac": "yarn build && electron-builder build --mac --publish always"
+  },
+  "dependencies": {
+    "esm": "^3.2.25"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.1.1",
+    "electron": "^6.0.9",
+    "electron-builder": "^21.2.0",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
+  },
+  "build": {
+    "productName": "{your name}",
+    "appId": "{application.id}",
+    "win": {
+      "target": [
+        "nsis",
+        "msi"
+      ]
+    },
+    "publish": {
+      "provider": "github"
+    }
+  }
+}
